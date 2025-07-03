@@ -18,6 +18,7 @@ export class taxCreditSurveyPage {
   readonly felcony_NoSelection: Locator;
   readonly unEmpBenefits_NoSelection: Locator;
   readonly nameConfirmationInput: Locator;
+  readonly submitFormButton: Locator;
 
     // Constructor to initialize the page and its elements
     constructor(page: Page) {
@@ -40,6 +41,7 @@ export class taxCreditSurveyPage {
     this.unEmpBenefits_NoSelection = page.locator("#SurveyControl_Question1244").getByText('No');
 
     this.nameConfirmationInput = page.locator("input[id^='SurveyControl_Question1137']");
+    this.submitFormButton = page.getByRole('button', { name: 'Submit form' });
   }
 
   // Navigate to the page and wait until the DOM is loaded
@@ -50,7 +52,7 @@ export class taxCreditSurveyPage {
       });
   }
 
-   // Filling the data in first page
+   // Filling the user data
   async fillFirstPage(firstName: string, lastName: string, email: string, address: string, city: string, zip: string) {
     await this.firstNameEditBox.fill(firstName);
     await this.lastNameEditBox.fill(lastName);
