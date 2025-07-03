@@ -48,7 +48,7 @@ export class taxCreditSurveyPage {
   async navigate() {
     await this.page.goto("https://uat-survey.taxcreditco.com/automation-challenge", {
         timeout: 30000,
-        waitUntil: 'domcontentloaded'
+        waitUntil: 'networkidle' 
       });
   }
 
